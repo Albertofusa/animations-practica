@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --backgroud: #15161a;
+  --cards: #292a2e;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--backgroud);
+}
+
+.title {
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+
+.content {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.animation__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 20px;
+}
+
+.animation__content__card {
+  background-color: var(--cards);
+}
+
+.text {
+  color: lawngreen;
+}
+
+.fade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.hover-box {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  transition: transform 2s ease-in 0s;
+}
+
+.hover:hover .hover-box {
+  animation-name: hover;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes hover {
+  0% {
+    transform: translatex(0%);
+    background-color: red;
+  }
+
+  33% {
+    transform: translatey(100%);
+    background-color: aqua;
+  }
+
+  66% {
+    transform: translateX(100%) translateY(100%);
+    background-color: rebeccapurple;
+  }
+
+  100% {
+    transform: translatex(100%);
+    background-color: lightgreen;
+  }
+}
+
+.translatey-paused {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen {
+  height: 100px;
+  animation-name: kiss;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.imagen:hover {
+  animation-play-state: paused;
+  cursor: wait;
+}
+
+@keyframes kiss {
+  0% {
+    transform: translateY(30%);
+  }
+
+  100% {
+    transform: translateY(0%);
+    box-shadow: -4px 21px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.fade__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-left;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.card_pulse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pulse {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background-color: limegreen;
+  position: relative;
+}
+
+.pulse::after {
+  animation-name: pulse;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in;
+  animation-delay: 0ms;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+}
+
+.pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: blueviolet;
+  border-radius: 50%;
+}
+
+.card__togle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
